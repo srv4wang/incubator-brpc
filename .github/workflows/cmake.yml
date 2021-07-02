@@ -25,13 +25,16 @@ jobs:
       run: |
            wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/protoc.tar.gz
            tar xvf protoc.tar.gz
+           sudo apt install protobuf-compiler
            
     - name: config brpc
       run: |
            THIRD_DIR=thirdparty-protoc
-           export PATH=`pwd`/${THIRD_DIR}/protobuf/bin:$PATH
-           export LD_LIBRARY_PATH=`pwd`/${THIRD_DIR}/protobuf/lib:$LD_LIBRARY_PATH
-           sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include ${THIRD_DIR}/protobuf/include" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib"
+           #export PATH=`pwd`/${THIRD_DIR}/protobuf/bin:$PATH
+           #export LD_LIBRARY_PATH=`pwd`/${THIRD_DIR}/protobuf/lib:$LD_LIBRARY_PATH
+           #sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include ${THIRD_DIR}/protobuf/include" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib"
+           sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include " --libs="${THIRD_DIR}/gflags/lib/ "
+
 
     - name: make
       run: |
