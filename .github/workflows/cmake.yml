@@ -23,12 +23,13 @@ jobs:
     
     - name: install thridparty
       run: |
-           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
-           tar xvf test.tar.gz
+           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/pb.tar.gz
+           tar xvf pb.tar.gz
            
     - name: config brpc
       run: |
-           sh config_brpc.sh --headers="thirdparty-test/gflags/include/ " --libs="thirdparty-test/gflags/lib/ "
+           THIRD_DIR=thirdparty-pb
+           sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include/ ${THIRD_DIR}/protobuf/include/" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib/"
 
     - name: make
       run: |
