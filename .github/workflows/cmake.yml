@@ -46,7 +46,7 @@ jobs:
            #export PATH=`pwd`/${THIRD_DIR}/protobuf/bin:$PATH
            #export LD_LIBRARY_PATH=`pwd`/${THIRD_DIR}/protobuf/lib:$LD_LIBRARY_PATH
            #sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include ${THIRD_DIR}/protobuf/include" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib"
-           sh config_brpc.sh --headers="/usr/local/include " --libs="/usr/local/lib "
+           sh config_brpc.sh --headers="/usr/include/ /usr/local/include/ " --libs="/usr/lib/ /usr/lib64/ /usr/local/lib/ /usr/local/lib4/ "
 
 
     - name: make
