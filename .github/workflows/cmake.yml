@@ -25,17 +25,19 @@ jobs:
       run: |
            sudo apt-get install libleveldb-dev
            sudo apt-get install libgflags-dev
+           sudo apt install protobuf-compiler
+           protoc --version
 
       
     - name: install thridparty
       run: |
-           wget https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-cpp-3.17.3.tar.gz
-           tar xvf protobuf-cpp-3.17.3.tar.gz
-           cd protobuf-3.17.3
-           ./autogen.sh
-           ./configure
-           make -j $(nproc)
-           sudo make install
+           #wget https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-cpp-3.17.3.tar.gz
+           #tar xvf protobuf-cpp-3.17.3.tar.gz
+           #cd protobuf-3.17.3
+           #./autogen.sh
+           #./configure
+           #make -j $(nproc)
+           #sudo make install
            sudo ldconfig
            
     - name: config brpc
@@ -44,7 +46,7 @@ jobs:
            #export PATH=`pwd`/${THIRD_DIR}/protobuf/bin:$PATH
            #export LD_LIBRARY_PATH=`pwd`/${THIRD_DIR}/protobuf/lib:$LD_LIBRARY_PATH
            #sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include ${THIRD_DIR}/protobuf/include" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib"
-           sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include " --libs="${THIRD_DIR}/gflags/lib/ "
+           sh config_brpc.sh --headers="/usr/local/include " --libs="/usr/local/lib "
 
 
     - name: make
