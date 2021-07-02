@@ -21,13 +21,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: install leveldb
-      run: sudo apt-get install libleveldb-dev
+    - name: install leveldb and gflags
+      run: |
+           sudo apt-get install libleveldb-dev
+           sudo apt-get install libgflags-dev
+
       
     - name: install thridparty
       run: |
-           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
-           tar xvf test.tar.gz
            wget https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.17.3.tar.gz
            tar xvf v3.17.3.tar.gz
            cd protobuf-3.17.3
