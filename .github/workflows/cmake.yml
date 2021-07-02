@@ -23,13 +23,20 @@ jobs:
     
     - name: install thridparty
       run: |
-           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/protoc.tar.gz
-           tar xvf protoc.tar.gz
-           sudo apt install protobuf-compiler
+           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
+           tar xvf test.tar.gz
+           wget https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.17.3.tar.gz
+           tar xvf v3.17.3.tar.gz
+           cd protobuf-3.17.3
+           ./autogen.sh
+           ./configure
+           make -j $(nproc)
+           sudo make install
+           sudo ldconfig
            
     - name: config brpc
       run: |
-           THIRD_DIR=thirdparty-protoc
+           THIRD_DIR=thirdparty-test
            #export PATH=`pwd`/${THIRD_DIR}/protobuf/bin:$PATH
            #export LD_LIBRARY_PATH=`pwd`/${THIRD_DIR}/protobuf/lib:$LD_LIBRARY_PATH
            #sh config_brpc.sh --headers="${THIRD_DIR}/gflags/include ${THIRD_DIR}/protobuf/include" --libs="${THIRD_DIR}/gflags/lib/ ${THIRD_DIR}/protobuf/lib"
