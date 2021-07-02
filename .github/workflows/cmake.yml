@@ -22,7 +22,8 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: install thridparty
-      run: wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
+      run: |
+           wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
            tar xvf test.tar.gz
 
     - name: Configure CMake
