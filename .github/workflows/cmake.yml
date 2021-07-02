@@ -25,11 +25,15 @@ jobs:
       run: |
            wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/test.tar.gz
            tar xvf test.tar.gz
+           
+    - name: config brpc
+      run: |
+           sh config_brpc.sh --headers="thirdparty-test/gflags/include/ " --libs="thirdparty-test/gflags/lib/ "
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DGFLAGS_INCLUDE_PATH=thirdparty-test/gflags/include/ 
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       # Build your program with the given configuration
