@@ -24,7 +24,7 @@ jobs:
     - name: install thridparty
       run: |
            wget https://github.com/guodongxiaren/thirdparty/archive/refs/tags/protoc.tar.gz
-           tar xvf pb.tar.gz
+           tar xvf protoc.tar.gz
            
     - name: config brpc
       run: |
