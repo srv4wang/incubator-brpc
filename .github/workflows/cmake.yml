@@ -29,8 +29,8 @@ jobs:
       
     - name: install thridparty
       run: |
-           wget https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.17.3.tar.gz
-           tar xvf v3.17.3.tar.gz
+           wget https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-cpp-3.17.3.tar.gz
+           tar xvf protobuf-cpp-3.17.3.tar.gz
            cd protobuf-3.17.3
            ./autogen.sh
            ./configure
