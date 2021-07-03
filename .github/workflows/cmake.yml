@@ -29,6 +29,17 @@ jobs:
            sudo apt install protobuf-compiler
            protoc --version         
 
+    - name: yaml
+      run: |
+           wget https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.6.3.tar.gz
+           tar xvf yaml-cpp-0.6.3.tar.gz
+           cd yaml-cpp-0.6.3
+           mkdir build
+           cd build
+           cmake ..
+           make -j $(nproc)
+           sudo make install
+
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
